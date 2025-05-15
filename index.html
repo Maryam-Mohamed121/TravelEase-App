@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TravelEase - Your Perfect Trip Planner</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+          <a class="navbar-brand" href="#">
+            <i class="fas fa-plane-departure me-2"></i>TravelEase
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="#home">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#planner">Trip Planner</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#suggestions">Suggestions</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#ratings">Ratings</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#about">About</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <h1>Plan Your Perfect Trip</h1>
+            <p class="lead">
+              Organize your travel plans, get recommendations, and never miss an
+              important moment with our comprehensive trip planner.
+            </p>
+            <a href="#planner" class="btn btn-primary btn-lg">Start Planning</a>
+          </div>
+          <div class="col-lg-6">
+            <img
+              src="/img/TravelEasy-removebg-preview.png"
+              alt="Travel Illustration"
+              class="img-fluid rounded"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trip Planner Section -->
+    <section id="planner" class="planner py-5">
+      <div class="container">
+        <h2 class="text-center mb-5">Trip Planner</h2>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card mb-4">
+              <div class="card-header">
+                <h3>Create New Plan</h3>
+              </div>
+              <div class="card-body">
+                <form id="tripForm">
+                  <div class="mb-3">
+                    <label for="tripName" class="form-label">Trip Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="tripName"
+                      required
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="destination" class="form-label"
+                      >Destination</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="destination"
+                      required
+                    />
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-md-6">
+                      <label for="startDate" class="form-label"
+                        >Start Date</label
+                      >
+                      <input
+                        type="date"
+                        class="form-control"
+                        id="startDate"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-6">
+                      <label for="endDate" class="form-label">End Date</label>
+                      <input
+                        type="date"
+                        class="form-control"
+                        id="endDate"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="notes" class="form-label">Notes</label>
+                    <textarea
+                      class="form-control"
+                      id="notes"
+                      rows="3"
+                    ></textarea>
+                  </div>
+                  <button type="submit" class="btn btn-primary">
+                    Save Plan
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card mb-4">
+              <div class="card-header">
+                <h3>Set Reminders</h3>
+              </div>
+              <div class="card-body">
+                <form id="reminderForm">
+                  <div class="mb-3">
+                    <label for="reminderName" class="form-label"
+                      >Reminder Name</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="reminderName"
+                      required
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="reminderDate" class="form-label"
+                      >Date & Time</label
+                    >
+                    <input
+                      type="datetime-local"
+                      class="form-control"
+                      id="reminderDate"
+                      required
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="reminderNotes" class="form-label">Notes</label>
+                    <textarea
+                      class="form-control"
+                      id="reminderNotes"
+                      rows="2"
+                    ></textarea>
+                  </div>
+                  <button type="submit" class="btn btn-primary">
+                    Set Reminder
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Your Plans Section -->
+    <section id="plans" class="plans py-5">
+      <div class="container">
+        <h2 class="text-center mb-5">Your Plans</h2>
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="card">
+              <div class="card-header">
+                <h3>Your Travel Plans</h3>
+              </div>
+              <div class="card-body">
+                <div id="plansList" class="list-group">
+                  <!-- Plans will be added here dynamically -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Suggestions Section -->
+    <section id="suggestions" class="suggestions py-5">
+      <div class="container">
+        <h2 class="text-center mb-5">Recommendations</h2>
+
+        <ul class="nav nav-tabs mb-4" id="suggestionsTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link active"
+              id="restaurants-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#restaurants"
+              type="button"
+            >
+              Restaurants
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="attractions-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#attractions"
+              type="button"
+            >
+              Tourist Attractions
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="hotels-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#hotels"
+              type="button"
+            >
+              Hotels
+            </button>
+          </li>
+        </ul>
+
+        <div class="tab-content" id="suggestionsTabContent">
+          <div
+            class="tab-pane fade show active"
+            id="restaurants"
+            role="tabpanel"
+          >
+            <div class="row">
+              <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                  <img
+                    src="/img/Paradise-Island.jpg"
+                    class="card-img-top"
+                    alt="Restaurant"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Gourmet Paradise</h5>
+                    <p class="card-text">
+                      Upscale dining with international cuisine and ocean views.
+                    </p>
+                    <div class="rating mb-2">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star-half-alt"></i>
+                      <span class="ms-2">4.5 (128)</span>
+                    </div>
+                    <button
+                      class="btn btn-sm btn-outline-primary add-to-plan"
+                      data-type="restaurant"
+                      data-name="Gourmet Paradise"
+                    >
+                      Add to Plan
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                  <img
+                    src="/img/local-bites.jpg"
+                    class="card-img-top"
+                    alt="Restaurant"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Local Bites</h5>
+                    <p class="card-text">
+                      Authentic local cuisine in a cozy atmosphere.
+                    </p>
+                    <div class="rating mb-2">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="far fa-star"></i>
+                      <span class="ms-2">4.0 (92)</span>
+                    </div>
+                    <button
+                      class="btn btn-sm btn-outline-primary add-to-plan"
+                      data-type="restaurant"
+                      data-name="Local Bites"
+                    >
+                      Add to Plan
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                  <img
+                    src="/img/quinoa-burger.jpg"
+                    class="card-img-top"
+                    alt="Restaurant"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Veggie Delight</h5>
+                    <p class="card-text">
+                      100% plant-based menu with creative dishes.
+                    </p>
+                    <div class="rating mb-2">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <span class="ms-2">5.0 (64)</span>
+                    </div>
+                    <button
+                      class="btn btn-sm btn-outline-primary add-to-plan"
+                      data-type="restaurant"
+                      data-name="Veggie Delight"
+                    >
+                      Add to Plan
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane fade" id="attractions" role="tabpanel">
+            <div class="row">
+              <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                  <img
+                    src="/img/old twon.jpg"
+                    class="card-img-top"
+                    alt="Attraction"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Historic Old Town</h5>
+                    <p class="card-text">
+                      Walk through centuries of history in our beautifully
+                      preserved old town.
+                    </p>
+                    <div class="rating mb-2">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <span class="ms-2">5.0 (312)</span>
+                    </div>
+                    <button
+                      class="btn btn-sm btn-outline-primary add-to-plan"
+                      data-type="attraction"
+                      data-name="Historic Old Town"
+                    >
+                      Add to Plan
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                  <img
+                    src="/img/sunset beach.jpeg"
+                    class="card-img-top"
+                    alt="Attraction"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Sunset Beach</h5>
+                    <p class="card-text">
+                      The perfect spot to watch the sunset with golden sands.
+                    </p>
+                    <div class="rating mb-2">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star-half-alt"></i>
+                      <span class="ms-2">4.5 (278)</span>
+                    </div>
+                    <button
+                      class="btn btn-sm btn-outline-primary add-to-plan"
+                      data-type="attraction"
+                      data-name="Sunset Beach"
+                    >
+                      Add to Plan
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                  <img
+                    src="/img/viewpoint-high-in-mountains.jpeg"
+                    class="card-img-top"
+                    alt="Attraction"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Mountain Viewpoint</h5>
+                    <p class="card-text">
+                      Breathtaking panoramic views after a moderate hike.
+                    </p>
+                    <div class="rating mb-2">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="far fa-star"></i>
+                      <span class="ms-2">4.0 (156)</span>
+                    </div>
+                    <button
+                      class="btn btn-sm btn-outline-primary add-to-plan"
+                      data-type="attraction"
+                      data-name="Mountain Viewpoint"
+                    >
+                      Add to Plan
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane fade" id="hotels" role="tabpanel">
+            <div class="row">
+              <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                  <img
+                    src="/img/grand-hotel.png"
+                    class="card-img-top"
+                    alt="Hotel"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Luxury Grand Hotel</h5>
+                    <p class="card-text">
+                      5-star accommodation with spa and rooftop pool.
+                    </p>
+                    <div class="rating mb-2">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star-half-alt"></i>
+                      <span class="ms-2">4.5 (89)</span>
+                    </div>
+                    <button
+                      class="btn btn-sm btn-outline-primary add-to-plan"
+                      data-type="hotel"
+                      data-name="Luxury Grand Hotel"
+                    >
+                      Add to Plan
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                  <img
+                    src="/img/cozy inn.jpg"
+                    class="card-img-top"
+                    alt="Hotel"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Cozy Downtown Inn</h5>
+                    <p class="card-text">
+                      Comfortable and affordable in the city center.
+                    </p>
+                    <div class="rating mb-2">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="far fa-star"></i>
+                      <span class="ms-2">4.0 (124)</span>
+                    </div>
+                    <button
+                      class="btn btn-sm btn-outline-primary add-to-plan"
+                      data-type="hotel"
+                      data-name="Cozy Downtown Inn"
+                    >
+                      Add to Plan
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                  <img
+                    src="/img/bungalows.jpg"
+                    class="card-img-top"
+                    alt="Hotel"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Beachside Bungalows</h5>
+                    <p class="card-text">
+                      Private bungalows just steps from the beach.
+                    </p>
+                    <div class="rating mb-2">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <span class="ms-2">5.0 (76)</span>
+                    </div>
+                    <button
+                      class="btn btn-sm btn-outline-primary add-to-plan"
+                      data-type="hotel"
+                      data-name="Beachside Bungalows"
+                    >
+                      Add to Plan
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ratings Section -->
+    <section id="ratings" class="ratings py-5">
+      <div class="container">
+        <h2 class="text-center mb-5">Rate Your Experiences</h2>
+
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="card">
+              <div class="card-header">
+                <h3>Submit a Review</h3>
+              </div>
+              <div class="card-body">
+                <form id="reviewForm">
+                  <div class="mb-3">
+                    <label for="placeName" class="form-label">Place Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="placeName"
+                      required
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="placeType" class="form-label">Type</label>
+                    <select class="form-select" id="placeType" required>
+                      <option value="">Select type</option>
+                      <option value="restaurant">Restaurant</option>
+                      <option value="attraction">Tourist Attraction</option>
+                      <option value="hotel">Hotel</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Rating</label>
+                    <div class="rating-input">
+                      <i class="far fa-star" data-rating="1"></i>
+                      <i class="far fa-star" data-rating="2"></i>
+                      <i class="far fa-star" data-rating="3"></i>
+                      <i class="far fa-star" data-rating="4"></i>
+                      <i class="far fa-star" data-rating="5"></i>
+                      <input type="hidden" id="ratingValue" required />
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="reviewText" class="form-label">Review</label>
+                    <textarea
+                      class="form-control"
+                      id="reviewText"
+                      rows="3"
+                      required
+                    ></textarea>
+                  </div>
+                  <button type="submit" class="btn btn-primary">
+                    Submit Review
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            <div class="card mt-4">
+              <div class="card-header">
+                <h3>Recent Reviews</h3>
+              </div>
+              <div class="card-body">
+                <div id="reviewsList">
+                  <!-- Reviews will be added here dynamically -->
+                  <div class="alert alert-info">
+                    No reviews yet. Be the first to submit one!
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <h2 class="text-center mb-5">About TravelEase</h2>
+            <p class="lead">
+              TravelEase is your comprehensive trip planning companion, designed
+              to make organizing your travels simple and stress-free. Our
+              platform helps you create detailed itineraries, discover the best
+              local spots, and keep track of all your travel plans in one place.
+            </p>
+            <p class="lead">
+              Whether you're planning a weekend getaway or a month-long
+              adventure, TravelEase has all the tools you need to make your trip
+              memorable.
+            </p>
+          </div>
+          <div class="col-lg-6">
+            <img
+              src="/img/traveling-route-illustration-download-in-svg-png-gif-file-formats--world-logo-best-location-vacation-trip-planning-select-travel-tourist-pack-illustrations-3213893 (1).png"
+              alt="About TravelEase"
+              class="img-fluid rounded"
+              style="width: 500px; height: auto"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 mb-4 mb-md-0">
+            <h5>TravelEase</h5>
+            <p>Your perfect trip planning companion.</p>
+            <div class="social-icons">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4 mb-md-0">
+            <h5>Quick Links</h5>
+            <ul class="list-unstyled">
+              <li><a href="#home">Home</a></li>
+              <li><a href="#planner">Trip Planner</a></li>
+              <li><a href="#suggestions">Suggestions</a></li>
+              <li><a href="#ratings">Ratings</a></li>
+              <li><a href="#about">About</a></li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <h5>Contact</h5>
+            <ul class="list-unstyled">
+              <li><i class="fas fa-envelope me-2"></i> info@travelease.com</li>
+              <li><i class="fas fa-phone me-2"></i> +1 (555) 123-4567</li>
+              <li>
+                <i class="fas fa-map-marker-alt me-2"></i> 123 Travel St,
+                Adventure City
+              </li>
+            </ul>
+          </div>
+        </div>
+        <hr class="mt-4" />
+        <div class="text-center">
+          <p class="mb-0">
+            &copy; 2025 TravelEase. All rights reserved To Mary.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Add to Plan Modal -->
+    <div
+      class="modal fade"
+      id="addToPlanModal"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Add to Plan</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="addToPlanForm">
+              <input type="hidden" id="itemType" />
+              <input type="hidden" id="itemName" />
+              <div class="mb-3">
+                <label for="selectPlan" class="form-label">Select Plan</label>
+                <select class="form-select" id="selectPlan" required>
+                  <!-- Plans will be added here dynamically -->
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="planDate" class="form-label">Date</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  id="planDate"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="planNotes" class="form-label">Notes</label>
+                <textarea
+                  class="form-control"
+                  id="planNotes"
+                  rows="2"
+                ></textarea>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cancel
+            </button>
+            <button type="button" class="btn btn-primary" id="confirmAddToPlan">
+              Add to Plan
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reminder Notification -->
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+      <div
+        id="reminderToast"
+        class="toast hide"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+      >
+        <div class="toast-header">
+          <strong class="me-auto">Reminder</strong>
+          <small>Just now</small>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="toast"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="toast-body" id="reminderToastBody">
+          This is a reminder notification.
+        </div>
+      </div>
+    </div>
+
+    <!-- Custom Notification Modals -->
+    <!-- Success Modal -->
+    <div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header bg-success text-white">
+            <h5 class="modal-title">Success</h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="text-center mb-4">
+              <i
+                class="fas fa-check-circle text-success"
+                style="font-size: 3rem"
+              ></i>
+            </div>
+            <p id="successMessage" class="text-center"></p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-success"
+              data-bs-dismiss="modal"
+            >
+              OK
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div class="modal fade" id="confirmModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header bg-warning text-dark">
+            <h5 class="modal-title">Confirm Action</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="text-center mb-4">
+              <i
+                class="fas fa-exclamation-triangle text-warning"
+                style="font-size: 3rem"
+              ></i>
+            </div>
+            <p id="confirmMessage" class="text-center"></p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cancel
+            </button>
+            <button type="button" class="btn btn-warning" id="confirmAction">
+              Confirm
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Error Modal -->
+    <div class="modal fade" id="errorModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header bg-danger text-white">
+            <h5 class="modal-title">Error</h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="text-center mb-4">
+              <i
+                class="fas fa-times-circle text-danger"
+                style="font-size: 3rem"
+              ></i>
+            </div>
+            <p id="errorMessage" class="text-center"></p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-danger"
+              data-bs-dismiss="modal"
+            >
+              OK
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Edit Plan Modal -->
+    <div class="modal fade" id="editPlanModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div
+            class="modal-header text-white"
+            style="background-color: var(--primary-color)"
+          >
+            <h5 class="modal-title">Edit Plan</h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="editPlanForm">
+              <input type="hidden" id="editPlanIndex" />
+              <div class="mb-3">
+                <label for="editTripName" class="form-label">Trip Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="editTripName"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="editDestination" class="form-label"
+                  >Destination</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="editDestination"
+                  required
+                />
+              </div>
+              <div class="row mb-3">
+                <div class="col-md-6">
+                  <label for="editStartDate" class="form-label"
+                    >Start Date</label
+                  >
+                  <input
+                    type="date"
+                    class="form-control"
+                    id="editStartDate"
+                    required
+                  />
+                </div>
+                <div class="col-md-6">
+                  <label for="editEndDate" class="form-label">End Date</label>
+                  <input
+                    type="date"
+                    class="form-control"
+                    id="editEndDate"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="editNotes" class="form-label">Notes</label>
+                <textarea
+                  class="form-control"
+                  id="editNotes"
+                  rows="3"
+                ></textarea>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cancel
+            </button>
+            <button type="button" class="btn btn-primary" id="savePlanEdit">
+              Save Changes
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+  </body>
+</html>
